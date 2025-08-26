@@ -1,0 +1,18 @@
+# APPLICATION ICON PLACEHOLDER
+# 
+# This file should be replaced with an actual PNG icon file.
+# 
+# Requirements:
+# - Format: PNG
+# - Size: 256x256 pixels (recommended)
+# - Transparency: Supported
+# - File size: Under 1MB
+#
+# The icon should represent the Arctium WoW Launcher brand.
+# You can use the original logo from the C# project or create a new one.
+#
+# To replace this placeholder:
+# 1. Create your icon as a PNG file
+# 2. Name it "icon.png"
+# 3. Replace this file with your actual icon
+# 4. The project will automatically use it

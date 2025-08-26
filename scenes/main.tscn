@@ -1,0 +1,233 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqxvhqxqxqxqx"]
+
+[ext_resource type="Script" path="res://scripts/main_ui.gd" id="1_0xqxq"]
+[ext_resource type="Script" path="res://scripts/launcher.gd" id="2_1xqxq"]
+[ext_resource type="Script" path="res://scripts/game_integration.gd" id="3_2xqxq"]
+[ext_resource type="Script" path="res://scripts/asset_manager.gd" id="4_3xqxq"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_0xqxq")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.0784314, 0.0784314, 0.0784314, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+
+[node name="Header" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Logo" type="TextureRect" parent="VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 0
+custom_minimum_size = Vector2(64, 64)
+texture_filter = 1
+
+[node name="TitleContainer" type="VBoxContainer" parent="VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="VBoxContainer/Header/TitleContainer"]
+layout_mode = 2
+text = "Arctium WoW Launcher"
+label_settings = SubResource("LabelSettings_1xqxq")
+
+[node name="Subtitle" type="Label" parent="VBoxContainer/Header/TitleContainer"]
+layout_mode = 2
+text = "Custom Server Launcher"
+label_settings = SubResource("LabelSettings_2xqxq")
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Content" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LeftPanel" type="VBoxContainer" parent="VBoxContainer/Content"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GameVersionGroup" type="VBoxContainer" parent="VBoxContainer/Content/LeftPanel"]
+layout_mode = 2
+
+[node name="GameVersionLabel" type="Label" parent="VBoxContainer/Content/LeftPanel/GameVersionGroup"]
+layout_mode = 2
+text = "Game Version"
+label_settings = SubResource("LabelSettings_3xqxq")
+
+[node name="GameVersionOptionButton" type="OptionButton" parent="VBoxContainer/Content/LeftPanel/GameVersionGroup"]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 3
+popup/item_0/text = "Retail (10.x)"
+popup/item_0/id = 0
+popup/item_1/text = "Classic BC/WotLK (2.5.x, 3.4.x)"
+popup/item_1/id = 1
+popup/item_2/text = "Classic Era (1.14.x)"
+popup/item_2/id = 2
+
+[node name="GamePathGroup" type="VBoxContainer" parent="VBoxContainer/Content/LeftPanel"]
+layout_mode = 2
+
+[node name="GamePathLabel" type="Label" parent="VBoxContainer/Content/LeftPanel/GamePathGroup"]
+layout_mode = 2
+text = "Game Path (Optional)"
+label_settings = SubResource("LabelSettings_3xqxq")
+
+[node name="GamePathHBox" type="HBoxContainer" parent="VBoxContainer/Content/LeftPanel/GamePathGroup"]
+layout_mode = 2
+
+[node name="GamePathLineEdit" type="LineEdit" parent="VBoxContainer/Content/LeftPanel/GamePathGroup/GamePathHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Auto-detect"
+
+[node name="BrowseButton" type="Button" parent="VBoxContainer/Content/LeftPanel/GamePathGroup/GamePathHBox"]
+layout_mode = 2
+text = "Browse"
+
+[node name="OptionsGroup" type="VBoxContainer" parent="VBoxContainer/Content/LeftPanel"]
+layout_mode = 2
+
+[node name="OptionsLabel" type="Label" parent="VBoxContainer/Content/LeftPanel/OptionsGroup"]
+layout_mode = 2
+text = "Options"
+label_settings = SubResource("LabelSettings_3xqxq")
+
+[node name="DevModeCheckBox" type="CheckBox" parent="VBoxContainer/Content/LeftPanel/OptionsGroup"]
+layout_mode = 2
+text = "Developer Mode (for local servers)"
+
+[node name="KeepCacheCheckBox" type="CheckBox" parent="VBoxContainer/Content/LeftPanel/OptionsGroup"]
+layout_mode = 2
+text = "Keep Cache"
+button_pressed = true
+
+[node name="StaticAuthSeedCheckBox" type="CheckBox" parent="VBoxContainer/Content/LeftPanel/OptionsGroup"]
+layout_mode = 2
+text = "Use Static Auth Seed"
+
+[node name="SkipPatchingCheckBox" type="CheckBox" parent="VBoxContainer/Content/LeftPanel/OptionsGroup"]
+layout_mode = 2
+text = "Skip Connection Patching"
+
+[node name="RightPanel" type="VBoxContainer" parent="VBoxContainer/Content"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StatusGroup" type="VBoxContainer" parent="VBoxContainer/Content/RightPanel"]
+layout_mode = 2
+
+[node name="StatusLabel" type="Label" parent="VBoxContainer/Content/RightPanel/StatusGroup"]
+layout_mode = 2
+text = "Status"
+label_settings = SubResource("LabelSettings_3xqxq")
+
+[node name="StatusTextEdit" type="TextEdit" parent="VBoxContainer/Content/RightPanel/StatusGroup"]
+layout_mode = 2
+size_flags_vertical = 3
+editable = false
+placeholder_text = "Ready to launch..."
+
+[node name="LaunchButton" type="Button" parent="VBoxContainer/Content/RightPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Launch Game"
+
+[node name="MobileControls" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TouchJoystick" type="Control" parent="MobileControls"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = -50.0
+
+[node name="JoystickBackground" type="ColorRect" parent="MobileControls/TouchJoystick"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.2, 0.2, 0.2, 0.8)
+
+[node name="JoystickHandle" type="ColorRect" parent="MobileControls/TouchJoystick"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0.4, 0.4, 0.4, 0.9)
+
+[node name="ActionButtons" type="HBoxContainer" parent="MobileControls"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -150.0
+offset_right = -50.0
+offset_bottom = -50.0
+
+[node name="ActionButton1" type="Button" parent="MobileControls/ActionButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Action 1"
+
+[node name="ActionButton2" type="Button" parent="MobileControls/ActionButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Action 2"
+
+[node name="Launcher" type="Node" parent="."]
+script = ExtResource("2_1xqxq")
+
+[node name="GameIntegration" type="Node" parent="."]
+script = ExtResource("3_2xqxq")
+
+[node name="AssetManager" type="Node" parent="."]
+script = ExtResource("4_3xqxq")
+
+[sub_resource type="LabelSettings" id="LabelSettings_1xqxq"]
+font_size = 24
+font_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2xqxq"]
+font_size = 14
+font_color = Color(0.7, 0.7, 0.7, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3xqxq"]
+font_size = 16
+font_color = Color(1, 1, 1, 1)
