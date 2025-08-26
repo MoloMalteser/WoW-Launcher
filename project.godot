@@ -44,3 +44,23 @@ ui_cancel={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+
+[export_presets]
+
+[export_preset name="Windows Desktop" platform="Windows Desktop" runnable=true dedicated_server=false custom_features="" export_filter="all" include_filter="" exclude_filter="" export_path="build/windows/Arctium_WoW_Launcher.exe" encryption_include_filters="" encryption_exclude_filters="" encryption_pck=false encryption_directory_keys=false]
+
+[export_preset name="Linux/X11" platform="Linux/X11" runnable=true dedicated_server=false custom_features="" export_filter="all" include_filter="" exclude_filter="" export_path="build/linux/Arctium_WoW_Launcher" encryption_include_filters="" encryption_exclude_filters="" encryption_pck=false encryption_directory_keys=false]
+
+[export_preset name="macOS" platform="macOS" runnable=true dedicated_server=false custom_features="" export_filter="all" include_filter="" exclude_filter="" export_path="build/macos/Arctium_WoW_Launcher.app" encryption_include_filters="" encryption_exclude_filters="" encryption_pck=false encryption_directory_keys=false]
+
+[export_preset name="Android" platform="Android" runnable=true dedicated_server=false custom_features="" export_filter="all" include_filter="" exclude_filter="" export_path="build/android/Arctium_WoW_Launcher.apk" encryption_include_filters="" encryption_exclude_filters="" encryption_pck=false encryption_directory_keys=false]
+
+[export_preset name="iOS" platform="iOS" runnable=true dedicated_server=false custom_features="" export_filter="all" include_filter="" exclude_filter="" export_path="build/ios/Arctium_WoW_Launcher.ipa" encryption_include_filters="" encryption_exclude_filters="" encryption_pck=false encryption_directory_keys=false]
+
+[autoload]
+
+Launcher="*res://scripts/launcher.gd"
+GameIntegration="*res://scripts/game_integration.gd"
+AssetManager="*res://scripts/asset_manager.gd"
+SettingsManager="*res://scripts/settings_manager.gd"
+ModLoader="*res://scripts/mod_loader.gd"
