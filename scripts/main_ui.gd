@@ -13,6 +13,8 @@ extends Control
 @onready var touch_joystick = $MobileControls/TouchJoystick
 @onready var joystick_handle = $MobileControls/TouchJoystick/JoystickHandle
 @onready var launcher = $Launcher
+@onready var game_integration = $GameIntegration
+@onready var asset_manager = $AssetManager
 
 var is_mobile: bool = false
 var joystick_center: Vector2
@@ -48,6 +50,9 @@ func _ready():
 	# Add initial status message
 	_add_status_message("Arctium WoW Launcher initialized")
 	_add_status_message("Select game version and options, then click Launch Game")
+	
+	# Initialize game integration
+	_initialize_game_integration()
 
 func _detect_mobile_platform():
 	# Check if running on mobile platform
@@ -220,6 +225,24 @@ func _add_status_message(message: String):
 	var lines = status_text.text.split("\n")
 	if lines.size() > 100:
 		status_text.text = "\n".join(lines.slice(-50))
+
+func _initialize_game_integration():
+	# Detect WoW installations
+	var installations = game_integration.detect_wow_installations()
+	
+	if installations.size() > 0:
+		_add_status_message("Found %d WoW installation(s)" % installations.size())
+		for path in installations:
+			var games = installations[path]
+			for game_name in games:
+				var game_info = games[game_name]
+				_add_status_message("Found %s: %s (Build %d)" % [
+					game_info.type, 
+					game_name, 
+					game_info.version.build
+				])
+	else:
+		_add_status_message("No WoW installations found")
 
 func _input(event):
 	# Handle mobile-specific input
