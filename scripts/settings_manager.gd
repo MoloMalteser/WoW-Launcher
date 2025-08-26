@@ -32,7 +32,6 @@ var launcher_settings: Dictionary = {
 
 # File paths
 var settings_file: String = "user://settings.cfg"
-var mobile_settings_file: String = "user://mobile_settings.cfg"
 
 func _ready():
 	load_settings()
