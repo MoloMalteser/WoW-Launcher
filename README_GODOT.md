@@ -180,7 +180,9 @@ The launcher supports various command-line parameters:
 ├── scripts/
 │   ├── launcher.gd          # Core launcher logic
 │   ├── main_ui.gd           # Main UI controller
-│   └── mod_loader.gd        # Custom file loading
+│   ├── mod_loader.gd        # Custom file loading
+│   ├── touch_joystick.gd    # Mobile joystick controls
+│   └── settings_manager.gd  # Settings management
 ├── scenes/
 │   └── main.tscn           # Main UI scene
 ├── assets/                 # Images, icons, etc.
